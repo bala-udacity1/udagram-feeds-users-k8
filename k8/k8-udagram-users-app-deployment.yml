@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-users-app
+  labels:
+    app: udagram-users-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: udagram-users-app
+  template:
+    metadata:
+      labels:
+        app: udagram-users-app
+    spec:
+      containers:
+      - name: udagram-users-app
+        image: balaudacity2/udagram-users-app
+        ports:
+        - containerPort: 80
